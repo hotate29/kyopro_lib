@@ -2,7 +2,7 @@
 
 
 
-from lib.UnionFind import UnionFind
+from python.lib.UnionFind import UnionFind
 
 
 n,q = map(int,input().split())
