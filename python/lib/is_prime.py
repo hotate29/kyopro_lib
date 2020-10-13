@@ -5,6 +5,8 @@ def isprime(n: int) -> bool:
         if i * i <= n:
             if n % i == 0:
                 return False
+        else:
+            break
     return True
 
 
