@@ -1,7 +1,7 @@
 # verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A
 
 
-from python.lib.prime_factrize import prime_factorize as pf
+from python.lib.prime_factorize import prime_factorize as pf
 
 
 if __name__ == "__main__":
