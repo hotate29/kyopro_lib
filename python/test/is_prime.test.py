@@ -4,4 +4,4 @@
 from python.lib.is_prime import isprime
 
 
-print(sum(isprime(int(input()) for _ in range(int(input()))))
+print(sum(isprime(int(input())) for _ in range(int(input()))))
