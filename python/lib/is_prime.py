@@ -1,5 +1,5 @@
 def isprime(n: int) -> bool:
-    if n < 2 or n%2:
+    if n < 2 or n%2 == 0:
         return False
     for i in range(3, n + 1,2):
         if i * i <= n:
