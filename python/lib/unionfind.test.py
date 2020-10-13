@@ -10,6 +10,6 @@ uf = UnionFind(n)
 for _ in range(q):
     ti,ui,vi = map(int,input().split())
     if ti:
-        print(int(uf.issame(ti,vi)))
+        print(int(uf.issame(ui,vi)))
     else:
         uf.union(ui,vi)
