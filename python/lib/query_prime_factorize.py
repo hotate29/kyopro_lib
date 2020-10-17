@@ -11,7 +11,8 @@ class prime_factorize():
             else:
                 if i == self.minfactor[i]:
                     for j in range(i, max_n + 1, i):
-                        self.minfactor[j] = i
+                        if self.minfactor[j] == j:
+                            self.minfactor[j] = i
 
     def pf(self, n: int) -> List[Tuple[int, int]]:
         assert n <= self.max_n
@@ -27,7 +28,7 @@ class prime_factorize():
 
 
 if __name__ == "__main__":
-    pf = prime_factorize(10**5)
-    for i in range(1,10**5):
-        r = pf.pf(i)
-        print(r)
+    pf = prime_factorize(10**7)
+    while(True):
+        i = int(input())
+        print(i, pf.pf(i))
