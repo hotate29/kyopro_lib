@@ -1,7 +1,7 @@
 #define PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=NTL_1_A
 
 #include <iostream>
-#include "cpp/lib/prime_factorize.hpp"
+#include "../lib/prime_factorize.hpp"
 using namespace std;
 
 
