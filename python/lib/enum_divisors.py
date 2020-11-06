@@ -1,3 +1,5 @@
+# 約数列挙
+# divisors
 from typing import List
 
 

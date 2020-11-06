@@ -1,3 +1,5 @@
+# （クエリ）素因数分解
+# query_pf
 from typing import List, Tuple
 
 
@@ -15,7 +17,7 @@ class prime_factorize():
                             self.minfactor[j] = i
 
     def pf(self, n: int) -> List[Tuple[int, int]]:
-        assert n <= self.max_n
+        assert 0 < n <= self.max_n
         r = []
         while(n != 1):
             e = 0

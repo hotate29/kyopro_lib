@@ -1,3 +1,5 @@
+# bit全探索
+# bitfullsearch
 from itertools import product
 
 

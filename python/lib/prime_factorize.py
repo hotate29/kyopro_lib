@@ -1,3 +1,5 @@
+# 素因数分解
+# pf
 from typing import List, Tuple
 
 
