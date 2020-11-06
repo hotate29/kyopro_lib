@@ -1,6 +1,5 @@
 # verification-helper: PROBLEM http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_A
 from python.lib.Bit_Full_search import BitFullSearch
-from math import ceil
 
 
 n = int(input())
