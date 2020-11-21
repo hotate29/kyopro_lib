@@ -1,9 +1,10 @@
 # 約数列挙
 # divisors
 from typing import List
+from itertools import chain
 
 
-def enum_divisors(n: int) -> List[int]:
+def enum_divisors(n: int) -> chain:
     upper = []
     lower = []
     i = 1
@@ -13,4 +14,4 @@ def enum_divisors(n: int) -> List[int]:
             if i != n // i:
                 upper.append(n // i)
         i += 1
-    return lower + upper[::-1]
+    return chain(lower,upper[::-1])
