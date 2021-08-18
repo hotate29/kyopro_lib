@@ -3,30 +3,31 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: py
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/documentation/build.py\"\
     , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.1/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/python.py\"\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n  File \"/opt/hostedtoolcache/Python/3.9.6/x64/lib/python3.9/site-packages/onlinejudge_verify/languages/python.py\"\
     , line 96, in bundle\n    raise NotImplementedError\nNotImplementedError\n"
-  code: "# UnionFind\n# unionfind\n\nfrom typing import Any, Optional, Callable, List\n\
-    \n\nclass UnionFind:\n    def __init__(\n            self,\n            n: int,\n\
-    \            v: Optional[List] = None,\n            func: Optional[Callable] =\
-    \ lambda x, y: x + y\n    ) -> None:\n        self.forest = [-1] * n\n       \
-    \ self.func = func\n        if v is None:\n            v = [0] * n\n        self.v\
-    \ = v\n\n    def union(self, x: int, y: int) -> None:\n        x = self.findRoot(x)\n\
+  code: "# UnionFind\n# unionfind\n\n\nfrom typing import Callable, Generic, List,\
+    \ Optional, TypeVar\n\nT = TypeVar(\"T\")\n\n\nclass UnionFind(Generic[T]):\n\
+    \    def __init__(\n            self,\n            n: int,\n            v: Optional[List[T]]\
+    \ = None,\n            func: Optional[Callable[[T, T], T]] = None\n    ) -> None:\n\
+    \        self.forest = [-1] * n\n        self.func = func\n        self.v = v\n\
+    \n    def union(self, x: int, y: int) -> None:\n        x = self.findRoot(x)\n\
     \        y = self.findRoot(y)\n        if x == y:\n            return\n      \
-    \  if self.forest[x] > self.forest[y]:\n            x, y = y, x\n        self.v[x]\
-    \ = self.func(self.v[x], self.v[y])\n        self.forest[x] += self.forest[y]\n\
-    \        self.forest[y] = x\n        return\n\n    def findRoot(self, x: int)\
-    \ -> int:\n        if self.forest[x] < 0:\n            return x\n        else:\n\
-    \            self.forest[x] = self.findRoot(self.forest[x])\n            return\
-    \ self.forest[x]\n\n    def issame(self, x: int, y: int) -> bool:\n        return\
-    \ self.findRoot(x) == self.findRoot(y)\n\n    def get_value(self, x: Any):\n \
-    \       return self.v[self.findRoot(x)]\n\n    def size(self, x: int) -> int:\n\
-    \        return -self.forest[self.findRoot(x)]\n"
+    \  if self.forest[x] > self.forest[y]:\n            x, y = y, x\n        if self.func\
+    \ is not None and self.v is not None:\n            self.v[x] = self.func(self.v[x],\
+    \ self.v[y])\n        self.forest[x] += self.forest[y]\n        self.forest[y]\
+    \ = x\n        return\n\n    def findRoot(self, x: int) -> int:\n        if self.forest[x]\
+    \ < 0:\n            return x\n        else:\n            self.forest[x] = self.findRoot(self.forest[x])\n\
+    \            return self.forest[x]\n\n    def issame(self, x: int, y: int) ->\
+    \ bool:\n        return self.findRoot(x) == self.findRoot(y)\n\n    def get_value(self,\
+    \ x: int) -> T:\n        assert self.v is not None\n        return self.v[self.findRoot(x)]\n\
+    \n    def size(self, x: int) -> int:\n        return -self.forest[self.findRoot(x)]\n"
   dependsOn: []
   isVerificationFile: false
   path: python/lib/UnionFind.py
