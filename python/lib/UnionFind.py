@@ -1,20 +1,21 @@
 # UnionFind
 # unionfind
 
-from typing import Any, Optional, Callable, List
+
+from typing import Callable, Generic, List, Optional, TypeVar
+
+T = TypeVar("T")
 
 
-class UnionFind:
+class UnionFind(Generic[T]):
     def __init__(
             self,
             n: int,
-            v: Optional[List] = None,
-            func: Optional[Callable] = lambda x, y: x + y
+            v: Optional[List[T]] = None,
+            func: Optional[Callable[[T, T], T]] = None
     ) -> None:
         self.forest = [-1] * n
         self.func = func
-        if v is None:
-            v = [0] * n
         self.v = v
 
     def union(self, x: int, y: int) -> None:
@@ -24,7 +25,8 @@ class UnionFind:
             return
         if self.forest[x] > self.forest[y]:
             x, y = y, x
-        self.v[x] = self.func(self.v[x], self.v[y])
+        if self.func is not None and self.v is not None:
+            self.v[x] = self.func(self.v[x], self.v[y])
         self.forest[x] += self.forest[y]
         self.forest[y] = x
         return
@@ -39,7 +41,8 @@ class UnionFind:
     def issame(self, x: int, y: int) -> bool:
         return self.findRoot(x) == self.findRoot(y)
 
-    def get_value(self, x: Any):
+    def get_value(self, x: int) -> T:
+        assert self.v is not None
         return self.v[self.findRoot(x)]
 
     def size(self, x: int) -> int:
