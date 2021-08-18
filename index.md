@@ -1,11 +1,6 @@
 ---
 data:
   libraryCategories:
-  - name: cpp/lib
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: cpp/lib/prime_factorize.hpp
-      title: cpp/lib/prime_factorize.hpp
   - name: python/lib
     pages:
     - icon: ':heavy_check_mark:'
@@ -27,11 +22,6 @@ data:
       path: python/lib/query_prime_factorize.py
       title: python/lib/query_prime_factorize.py
   verificationCategories:
-  - name: cpp/test
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: cpp/test/prime_factorize.test.cpp
-      title: cpp/test/prime_factorize.test.cpp
   - name: python/test
     pages:
     - icon: ':heavy_check_mark:'
